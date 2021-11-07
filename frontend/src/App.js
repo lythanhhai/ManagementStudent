@@ -4,6 +4,7 @@ import AllStudent from './Component/AllStudent';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import { useState } from 'react';
 import { history } from 'react'
+import './Asset/style.css';
 
 function App() {
   const redirect = () => {
@@ -22,13 +23,52 @@ function App() {
     <Router>
       <div className="App">
           
-          <Link to="/AllStudent" onClick={() => {fetchStudent();}}> Student</Link>
+          <Route path="/Home" render={() => (
+              <div className="Home">
+                <Link to="/AllStudent" onClick={() => {fetchStudent();}}>Get All Student</Link>
+                <Link to="/CreateStudent" onClick={() => {fetchStudent();}}>Create Student</Link>
+                <Link to="/RemoveStudent" onClick={() => {fetchStudent();}}>Remove Student</Link>
+                <Link to="/SearchStudent" onClick={() => {fetchStudent();}}>Search Student</Link>
+                <Link to="/UpdateStudent" onClick={() => {fetchStudent();}}>Update Student</Link>
+              </div>
+            )}>
+          </Route>
+          
           <Route path="/AllStudent" render={() => (
               <>
                 <AllStudent students={students}/>
               </>
           )}>
           </Route>
+
+          <Route path="/CreateStudent" render={() => (
+              <>
+                <AllStudent students={students}/>
+              </>
+          )}>
+          </Route>
+
+          <Route path="/RemoveStudent" render={() => (
+              <>
+                <AllStudent students={students}/>
+              </>
+          )}>
+          </Route>
+
+        <Route path="/SearchStudent" render={() => (
+            <>
+              <AllStudent students={students}/>
+            </>
+        )}>
+        </Route>
+
+        <Route path="/UpdateStudent" render={() => (
+            <>
+              <AllStudent students={students}/>
+            </>
+        )}>
+        </Route>
+
           <Route path="/SignIn" render={() => (
               <>
                 <SignIn />
