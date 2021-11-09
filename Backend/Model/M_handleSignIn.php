@@ -58,5 +58,15 @@
             mysqli_close($link);
             return $Students;
         }
+
+        public function createStudent($ID, $Name, $Age, $University)
+        {
+            $link = mysqli_connect("localhost:3307","root","") or die ("khong the ket noi");
+            // chọn loại kết nối
+            mysqli_select_db($link,"qlsv");
+            $sql ="insert into sinhvien values('$ID', '$Name', '$Age', '$University')";
+            // lấy kết quả từ query
+            $result= mysqli_query($link, $sql);
+        }
     }
 ?>

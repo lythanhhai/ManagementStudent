@@ -1,6 +1,9 @@
 import './App.css';
+// import component
 import SignIn from './Component/SignIn';
 import AllStudent from './Component/AllStudent';
+import FormInsert from './Component/FormInsert';
+//
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import { useState } from 'react';
 import { history } from 'react'
@@ -26,7 +29,7 @@ function App() {
           <Route path="/Home" render={() => (
               <div className="Home">
                 <Link to="/AllStudent" onClick={() => {fetchStudent();}}>Get All Student</Link>
-                <Link to="/CreateStudent" onClick={() => {fetchStudent();}}>Create Student</Link>
+                <Link to="/FormInsert" onClick={() => {fetchStudent();}}>Create Student</Link>
                 <Link to="/RemoveStudent" onClick={() => {fetchStudent();}}>Remove Student</Link>
                 <Link to="/SearchStudent" onClick={() => {fetchStudent();}}>Search Student</Link>
                 <Link to="/UpdateStudent" onClick={() => {fetchStudent();}}>Update Student</Link>
@@ -34,6 +37,21 @@ function App() {
             )}>
           </Route>
           
+          <Route path="/FormInsert" render={() => (
+              <>
+                <FormInsert />
+              </>
+          )}>
+          </Route>
+
+          <Route path="/CreateStudent" render={() => (
+              <>
+                <FormInsert />
+              </>
+          )}>
+          </Route>
+
+
           <Route path="/AllStudent" render={() => (
               <>
                 <AllStudent students={students}/>
