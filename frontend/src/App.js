@@ -5,7 +5,7 @@ import AllStudent from './Component/AllStudent';
 import FormInsert from './Component/FormInsert';
 //
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { history } from 'react'
 import './Asset/style.css';
 
@@ -22,6 +22,12 @@ function App() {
     console.log(arrayDataStudents);
     // console.log(typeof students);
   }
+
+  useEffect(
+    () => {
+      fetchStudent();
+  });
+
   return (
     <Router>
       <div className="App">
@@ -29,7 +35,7 @@ function App() {
           <Route path="/Home" render={() => (
               <div className="Home">
                 <Link to="/AllStudent" onClick={() => {fetchStudent();}}>Get All Student</Link>
-                <Link to="/FormInsert" onClick={() => {fetchStudent();}}>Create Student</Link>
+                <Link to="/FormInsert" >Create Student</Link>
                 <Link to="/RemoveStudent" onClick={() => {fetchStudent();}}>Remove Student</Link>
                 <Link to="/SearchStudent" onClick={() => {fetchStudent();}}>Search Student</Link>
                 <Link to="/UpdateStudent" onClick={() => {fetchStudent();}}>Update Student</Link>

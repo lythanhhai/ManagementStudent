@@ -14,11 +14,16 @@
     $Age = $obj['Age'];
     $University = $obj['University'];
 
+    // $ID = '6';
+    // $Name = 'lth';
+    // $Age = '18';
+    // $University = 'DHBKDN';
+
     $model_student = new Model_HandleSignIn();
     $message = '';
     try
     {
-        $model_Student->createStudent($ID, $Name, $Age, $University);
+        $model_student->createStudent($ID, $Name, $Age, $University);
         $message = "winner";
     }
     catch(Exception $err)
