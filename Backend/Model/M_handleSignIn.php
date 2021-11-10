@@ -68,5 +68,30 @@
             // lấy kết quả từ query
             $result= mysqli_query($link, $sql);
         }
+
+        public function searchStudent($chon, $noidung)
+        {
+            $link = mysqli_connect("localhost:3307","root", "") or die("khong the ket noi");
+
+            mysqli_select_db($link, "qlsv");
+
+            $sql = "select * from sinhvien where $chon='$noidung'";
+
+            $result = mysqli_query($link, $sql);
+
+            $arr = Array();
+            $i = 0;
+            while($row = mysqli_fetch_assoc($result))
+            {
+                $ID = $row['ID'];
+                $Name = $row['Name'];
+                $Age = $row['Age'];
+                $University = $row['University'];
+                $student = new Entity_Student($ID, $Name, $Age, $University);
+                $arr[$i] = $student;
+                $i++;
+            }
+            return $arr;
+        }
     }
 ?>
