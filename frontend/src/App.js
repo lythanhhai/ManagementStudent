@@ -3,6 +3,7 @@ import './App.css';
 import SignIn from './Component/SignIn';
 import AllStudent from './Component/AllStudent';
 import FormInsert from './Component/FormInsert';
+import SearchStudent from './Component/SearchStudent';
 //
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -50,22 +51,7 @@ function App() {
           )}>
           </Route>
 
-          <Route path="/CreateStudent" render={() => (
-              <>
-                <FormInsert />
-              </>
-          )}>
-          </Route>
-
-
           <Route path="/AllStudent" render={() => (
-              <>
-                <AllStudent students={students}/>
-              </>
-          )}>
-          </Route>
-
-          <Route path="/CreateStudent" render={() => (
               <>
                 <AllStudent students={students}/>
               </>
@@ -81,7 +67,7 @@ function App() {
 
         <Route path="/SearchStudent" render={() => (
             <>
-              <AllStudent students={students}/>
+                <SearchStudent />
             </>
         )}>
         </Route>
